@@ -1,0 +1,107 @@
+/* Navigation Bar */
+
+.navbar {
+  padding: 1.5rem;
+  background-color: black;
+}
+  
+.navbar-brand {
+  font-family: "Ubuntu";
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-left: 180px;
+}
+  
+.nav-item {
+  padding: 0 18px;
+}
+  
+.nav-link {
+  font-size: 1.3rem;
+  font-family: "Montserrat-light";
+}
+
+.colored-section {
+  background-color: #294b68;
+  color: #fff;
+}
+
+/* Containers */
+
+.container-fluid {
+  padding: 7% 15%;
+}
+
+/* Title Image */
+
+.title-image {
+  padding-left: 15rem;
+  height: 127.5%;
+}
+
+/* game-zone Section */
+
+#game-zone {
+  padding: 100px;
+}
+  
+.game-zone-text {
+  font-size: 3rem;
+  line-height: 1.5;
+}
+  
+.game-zone-column {
+  padding: 2%;
+}
+
+.section-heading {
+    text-align: center;
+    font-size: 3.5rem;
+    line-height: 1.5;
+    padding-bottom: 2rem;
+    font-weight: bolder;
+}
+
+.find-twin-section {
+    background-color: rgb(66, 66, 117);
+}
+
+.find-btn {
+    padding-top: 2rem;
+    padding-left: 47%;
+}
+
+.find-twin-image {
+    padding-right: 15rem;
+    width: 150%;
+}
+
+.find-twin-text {
+    color: white;
+    margin-top: 10rem;
+    margin-left: 25%;
+}
+
+/* Footer Section */
+
+.footer {
+    text-align: center;
+    padding: 50px 0 20px;
+    background-color: black;
+}
+
+.copyright {
+    color: #212529;
+    font-size: 0.75rem;
+    padding: 20px 0;
+}
+
+.footer-link {
+    color: #212529;
+    margin: 10px 20px;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: #798188;
+}
