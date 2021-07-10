@@ -32,6 +32,35 @@
   padding: 7% 15%;
 }
 
+/* buttons */
+
+.play-game-btn {
+  background: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
+  background-image: -moz-linear-gradient(top, #ffffff, #ffffff);
+  background-image: -ms-linear-gradient(top, #ffffff, #ffffff);
+  background-image: -o-linear-gradient(top, #ffffff, #ffffff);
+  background-image: linear-gradient(to bottom, #ffffff, #ffffff);
+  -webkit-border-radius: 15;
+  -moz-border-radius: 15;
+  border-radius: 15px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 20px;
+  padding: 15px 30px 15px 30px;
+  border: solid #000000 2px;
+  text-decoration: none;
+}
+
+.play-game-btn:hover {
+  background: #000000;
+  color: #fff;
+}
+
+.card-body {
+  margin-bottom: 10px;
+}
+
 /* Title Image */
 
 .title-image {
@@ -68,7 +97,25 @@
 
 .find-btn {
     padding-top: 2rem;
-    padding-left: 47%;
+    padding-left: 45%;
+}
+
+.find-twin-btn {
+  -webkit-border-radius: 15;
+  -moz-border-radius: 15;
+  border-radius: 15px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #000000;
+  padding: 15px 30px 15px 30px;
+  border: solid #000000 2px;
+  text-decoration: none;
+}
+
+.find-twin-btn:hover {
+  background: #ffffff;
+  color: black;
 }
 
 .find-twin-image {
