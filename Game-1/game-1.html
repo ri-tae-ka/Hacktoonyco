@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>2048</title>
+        <link rel="stylesheet"type="text/css" href="game-1-style.css">
+        <link rel="icon" href="favicon.ico" type="image/gif" sizes="16x16">
+        <meta name="viewport" content="width=device-width,intial-scale=1">
+    </head>
+    <body>
+        <h1 >2048</h1>
+        <div id="score">
+            <p id="name">Score</p>
+            <p id="score1">0</p>
+        </div>
+        <button type="button" onclick="setdefault()">New Game</button>
+        <h3>Join the tiles, get to 2048!
+            <br>
+            <a href="#howtoplay ">How To Play</a>
+        </h3>
+        <div id="outer_box">
+            <div class="inner_box" id="box1"></div>
+            <div class="inner_box" id="box2"></div>
+            <div class="inner_box" id="box3"></div>
+            <div class="inner_box" id="box4"></div>
+            <div class="inner_box" id="box5"></div>
+            <div class="inner_box" id="box6"></div>
+            <div class="inner_box" id="box7"></div>
+            <div class="inner_box" id="box8"></div>
+            <div class="inner_box" id="box9"></div>
+            <div class="inner_box" id="box10"></div>
+            <div class="inner_box" id="box11"></div>
+            <div class="inner_box" id="box12"></div>
+            <div class="inner_box" id="box13"></div>
+            <div class="inner_box" id="box14"></div>
+            <div class="inner_box" id="box15"></div>
+            <div class="inner_box" id="box16"></div>
+        </div>
+        <div id="game_box">
+            <h1 id="game_over">Game Over</h1>
+            <br><br>
+            <button type="button" onclick="setdefault()">Try Again</button>
+        </div>
+        <div id="howtoplay">
+            <b>How To Play</b>
+            Use your arrow keys to move the tiles. Tiles with the same number merge into one when they touch. Add them up to reach 2048!
+            <br><br>
+            <a href="#">Start Playing</a>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
