@@ -6,6 +6,12 @@
 
 <p align="center">Hacktoonyco is a web-based application that allows you to play anime-related games, search engine for anime lovers, and has a machine learning feature where you can toonify a human's image.</p>
 
+<h3 align="center">
+  <a href="https://hacktoony.co/">Website</a>
+  <span> · </span>
+  <a href="https://github.com/ri-tae-ka/Hacktoonyco">GitHub</a>
+</h3>
+
 ## Inspiration
 
 We took inspiration from various anime characters and series like Kamisama Kiss, Boa Hancock, and Nanami. We wanted to build something that would let users have a look at an animated version of themselves and their friends.
