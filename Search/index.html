@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacktoonyco | Search</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Fuggles&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+    <div class="background_body" style="height: 100vh; width:100%; position: fixed; z-index: -2;">
+    </div>
+    <div class="background_overlay" style="height: 100vh; width:100%; position: fixed; z-index: -2;">
+    </div>
+    <a href="../">
+        <h4 style="margin: 0; padding-left: 10px; color: black;">Hacktoony.co</h4>
+    </a>
+    <div class="container" style="padding-top: 20px;">
+        <div class="center">
+            <h1 style="font-weight: bold;">Search Toons</h1>
+            <div class="row">
+                <form id="search-form">
+                    <div class="input-field col s12 m10 offset-m1">
+                        <input placeholder="Naruto" id="toon-input" value='' type="text" class="validate search-bar">
+                    </div>
+                    <button type="submit" class="grey waves-effect waves-light btn">
+                        Search
+                        <i class="material-icons left">search</i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 50px;" id="response">
+        </div> 
+    </div>
+    <script>
+        function createobj(result){
+            var obj = `
+            <div class="col s3">
+                <div class="card" style="width: 100%">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="${result['image_url']}" style="object-fit: cover; height: 300px;">
+                    </div>
+                    <div class="card-content" style="height:80px; padding:0 10px;">
+                        <span class="card-title activator grey-text text-darken-4">
+                            <h6>${result['title']}</h6>
+                            <i class="material-icons right">more_vert</i>
+                        </span>
+                        <p><a target="_blank" href="${result['url']}">Know More</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">
+                            <h5>Synopsis</h5>
+                            <i class="material-icons right">close</i>
+                        </span>
+                        <p style="text-align:justify;">${result['synopsis']}</p>
+                    </div>
+                </div>
+            </div>
+            `
+            return obj;
+        }
+
+        const query = document.getElementById('toon-input');
+        const respdiv = document.getElementById('response');
+        const formSubmit = document.getElementById('search-form')
+        const endpoint = 'https://api.jikan.moe/v3/search/anime'
+        formSubmit.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            // console.log('got here')
+            let searchString = query.value || ''
+            if(searchString == '') return;
+            else{
+                // console.log('yesss', searchString)
+                let url = endpoint + '?q=' + searchString;
+                const response = await fetch(url, {
+                    method: 'get'
+                });
+                const result = await response.json();
+                const items = result['results']
+                let combody = ''
+                for(var i of items){
+                    var tem = createobj(i)
+                    combody = combody + tem;
+                }
+                respdiv.innerHTML = combody;
+            }
+        })
+    </script>
+</body>
+</html>
