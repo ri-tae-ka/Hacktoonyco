@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacktoonyco | Search Image</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Fuggles&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <style>
+        h5{
+            font-family: 'Courier New', Courier, monospace ;
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="background_body" style="height: 100vh; width:100%; position: fixed; z-index: -2;">
+    </div>
+    <div class="background_overlay" style="height: 100vh; width:100%; position: fixed; z-index: -2;">
+    </div>
+    <a href="../">
+        <h4 style="margin: 0; padding-left: 10px; color: black;">Hacktoonyco</h4>
+    </a>
+    <div class="container" style="padding-top: 20px;">
+        <div class="center">
+            <h1 style="font-weight: bold;">Search via Image</h1>
+            <div class="row">
+                <img id="output" height="200px" src="assets/photo-1563248101-a975e9a18cc6.webp" />	
+                <form id="search-form">
+                    <div class="input-field col s12 m10 offset-m1">
+                        <input
+                            type="file"
+                            id="image"
+                            accept="image/png, image/jpeg"
+                            onchange="loadFile(event)"
+                            required
+                        />
+                    </div>
+                    <button type="submit" class="grey waves-effect waves-light btn">
+                        Search
+                        <i class="material-icons left">search</i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 50px;" id="response">
+        </div> 
+    </div>
+    <script>
+        function createobj(result){
+            var sim = (result['similarity']*100).toFixed(2);
+            var obj = `
+            <li style="background-color: #f0ffff96;padding: 10px;margin-bottom: 10px;">
+                <div class="row">
+                    <h5><b>Similarity</b>: <i>${sim}%</i></h5>
+                    <h5><b>File</b>: <i>${result['filename']}</i></h5>
+                    <h5><b>Episode</b>: <i>${result['episode']}</i></h5>
+                    <div class="col s6">
+                        <img
+                        style="width: 100%; object-fit: cover;"
+                        src="${result['image']}"
+                        >
+                    </div>
+                    <div class="col s6">
+                        <video controls style="width: 100%; object-fit: cover;">
+                            <source
+                            style="width: 100%; object-fit: cover;"
+                            src="${result['video']}"
+                            >
+                          Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </li>
+            `
+            return obj;
+        }
+
+        var loadFile = function(event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+
+        const respdiv = document.getElementById('response');
+        const formSubmit = document.getElementById('search-form')
+        const endpoint = 'https://api.jikan.moe/v3/search/anime'
+        formSubmit.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            console.log('got here')
+            let formData = new FormData();
+            let file = formSubmit.image.files[0]
+            console.log(file)
+            formData.append('image', file, file.name )
+            const response = await fetch("https://api.trace.moe/search", {
+                method: 'post',
+                body: formData
+            });
+            const result = await response.json();
+            const items = result['result'];
+            //console.log(items)
+            var start = 0;
+            let combody = '<ul>'
+            for(var i of items){
+                console.log(i)
+                start++;
+                var tem = createobj(i)
+                combody = combody + tem;
+                if(start >= 3) break;
+            }
+            combody = combody + "</ul>"
+            respdiv.innerHTML = combody;
+        });
+    </script>
+</body>
+</html>
