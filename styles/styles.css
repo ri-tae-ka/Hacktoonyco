@@ -33,6 +33,10 @@
 
 /* Containers */
 
+.home-container {
+  padding-bottom: 10px !important;
+}
+
 .container-fluid {
   padding: 7% 15%;
 }
@@ -69,8 +73,9 @@
 /* Title Image */
 
 .title-image {
-  padding-left: 15rem;
-  height: 127.5%;
+  padding-left: 8rem;
+  height: 500px;
+  width: 500px;
 }
 
 /* game-zone Section */
