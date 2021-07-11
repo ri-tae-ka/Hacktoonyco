@@ -1,0 +1,16 @@
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Fuggles', cursive; }
+.background_body{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(assets/background.jpg);
+    background-size: cover;
+}
+.background_overlay{
+    background-color: rgba(250, 235, 215, 0.555);
+}
+.card-title{
+    font-weight: bold !important;
+    font-size: 35px !important;
+}

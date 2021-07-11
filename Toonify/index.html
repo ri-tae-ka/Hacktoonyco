@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacktoonyco | Toonify</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fuggles&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+  <div class="background_body" style="height: 100vh; width:100%; position: fixed; z-index: -2;">
+  </div>
+  <div class="background_overlay" style="height: 100vh; width:100%; position: fixed; z-index: -2;">
+  </div>
+  <div class="container" style="padding-top: 20px;">
+    <div class="center">
+      <h1 style="font-weight: bold;">Toonify your image</h1>
+    </div>
+    <div>
+      <div class="row center" style="display: block; width: 100%;">
+
+        <div class="col s5 offset-s1 m4 offset-m2">
+          <div class="card" style="width: 100%;">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" id="org" src="assets/background.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">
+                Original Image
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col s5 m4">
+          <div class="card" style="width: 100%;">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" id="toon" src="assets/background.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">
+                Toonified Image
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form id="toonForm">
+      <div class="center">
+        <p>
+          <div class="input-field col s12">
+          <input
+            type="file"
+            id="image"
+            accept="image/png, image/jpeg"
+            required
+          />
+          </div>
+        </p>
+        <button type="submit" class="blue accent-3 waves-effect waves-light btn">Toonify</a>
+      </div>
+    </form>
+  </div>
+    
+    <script>
+        var thisForm = document.getElementById('toonForm');
+        thisForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            let formData = new FormData()
+            let file = thisForm.image.files[0]
+            formData.append('image', file, file.name )
+            let url = "https://abhis-319407.el.r.appspot.com/api/posts";
+            const response = await fetch(url, {
+                method: 'post',
+                body: formData
+            });
+            const result = await response.json();
+            console.log(result)
+            document.getElementById("org").src = result['org_img'];
+            document.getElementById("toon").src = result['toon_img'];
+        });
+    </script>
+</body>
+</html>
