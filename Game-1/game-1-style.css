@@ -3,6 +3,8 @@ html {
         /* overflow-y: scroll; */
 }  
 body{
+    background-image: url(2048bg.jpg);
+    background-size: cover;
     background-color:#faf8ef;
     margin-top: 2%;
     margin-left: 32%;
