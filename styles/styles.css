@@ -26,7 +26,7 @@
 }
 
 .colored-section {
-  background-color: #294b68;
+  background-image: linear-gradient(black, rgb(69, 69, 143));
   color: #fff;
 }
 
