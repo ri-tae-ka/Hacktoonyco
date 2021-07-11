@@ -1,4 +1,4 @@
-<p align="center"><img height=100 src="" /></p>
+<p align="center"><img height=100 src="https://images.app.goo.gl/uofjfWVpEvmJJMCW8" /></p>
 
 <p align="center">
   <strong>Toru Kimi no anime Keiken Ni Inkurūdo Tsuki 🚀</strong>
@@ -8,7 +8,6 @@
 
 ## Inspiration
 
-Toru Kimi no anime Keiken Ni Inkurūdo Tsuki 🚀
 We took inspiration from various anime characters and series like Kamisama Kiss, Boa Hancock, and Nanami. We wanted to build something that would let users have a look at an animated version of themselves and their friends.
 
 ## What it does
