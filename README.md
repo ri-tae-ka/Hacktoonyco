@@ -1,4 +1,4 @@
-<p align="center"><img height=100 src="https://images.app.goo.gl/uofjfWVpEvmJJMCW8" /></p>
+<p align="center"><img height=100 src="https://media.discordapp.net/attachments/862347429638176838/863688376606654474/133122fca467b51526741b9c5e8d9db5.jpg?width=1030&height=644" /></p>
 
 <p align="center">
   <strong>Toru Kimi no anime Keiken Ni Inkurūdo Tsuki 🚀</strong>
