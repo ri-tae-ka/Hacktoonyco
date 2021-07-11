@@ -1,0 +1,34 @@
+html, body { height: 100%; }
+body { margin: 0; font-family: 'PT Sans Narrow', sans-serif;}
+.background_body{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(assets/photo-1563248101-a975e9a18cc6.webp);
+    background-size: cover;
+}
+.background_overlay{
+    background-color: rgba(250, 235, 215, 0.555);
+}
+.card-title{
+    font-weight: bold !important;
+    font-size: 35px !important;
+}
+
+.search-bar{
+    border: solid !important;
+    border-width: 3px !important;
+    border-radius: 10px !important;
+    width: 90%;
+    padding: 0 30px !important;
+    background-color: cornsilk !important;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #12121296 !important;
+    opacity: 1; /* Firefox */
+}
+
+h6{
+    height: 35px !important;
+    overflow: hidden;
+}
